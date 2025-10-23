@@ -1,44 +1,19 @@
-name: CI Pipeline
+name: Simple CI
 
-# Trigger on push to main branch or manual workflow dispatch
 on:
   push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
-  build-and-test:
+  test:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: your.email@example.com
-        run: |
-          echo "Hello from your.email@example.com"
-          echo "This step contains my email address"
-          date
+      - name: student@iitm.ac.in
+        run: echo "Hello from student@iitm.ac.in"
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          echo "Dependencies installed successfully"
-      
-      - name: Run tests
-        run: |
-          echo "Running tests..."
-          python --version
-          echo "All tests passed!"
-      
-      - name: Build complete
-        run: |
-          echo "Build completed successfully"
-          echo "Workflow finished at $(date)"
+      - name: Success message
+        run: echo "Workflow completed successfully!"
